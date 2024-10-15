@@ -1,0 +1,162 @@
+/* شاشة التحميل */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    flex-direction: column;
+}
+
+#loading-screen p {
+    font-size: 1.5rem; /* نص التحميل */
+    color: #000;
+    margin-top: 1rem;
+}
+
+/* العنصر المتحرك (Spinner) */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* إخفاء شاشة التحميل بعد انتهاء التحميل */
+.hidden {
+    display: none;
+}
+
+/* باقي الصفحة */
+body {
+    font-family: 'Arial', sans-serif;
+    direction: rtl; 
+    text-align: right; 
+    background-color: #f9f9f9;
+    background-image: url('pic/background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-size: 16px; 
+}
+
+/* محتوى الدعوة */
+.invitation {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1.25rem;
+    margin: 3.125rem auto;
+    max-width: 37.5rem;
+    border: 0.0625rem solid #ccc;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* بقية التنسيقات الخاصة بمحتوى الدعوة يمكن أن تظل كما هي */
+
+
+
+@keyframes popup {
+    0% {
+        transform: scale(0); /* البداية: العنصر صغير جدًا */
+        opacity: 0; /* غير مرئي */
+    }
+    60% {
+        transform: scale(1.1); /* تكبير إلى أكثر من حجمه الطبيعي */
+        opacity: 1; /* مرئي */
+    }
+    100% {
+        transform: scale(1); /* العودة إلى الحجم الطبيعي */
+    }
+}
+
+.popup {
+    animation: popup 0.5s ease-out forwards; /* مدة التأثير 0.5 ثانية */
+}
+
+
+.language-selector {
+    text-align: center;
+    margin: 1.25rem 0; /* 20px */
+}
+
+button {
+    margin: 0 0.625rem; /* 10px */
+    padding: 0.625rem 0.9375rem; /* 10px 15px */
+    font-size: 1rem; /* 16px */
+    cursor: pointer;
+}
+
+
+.decor {
+    width: 50%; /* تناسب عرض الحاوية */
+    position: absolute; /* لجعلها قابلة للتحكم */
+    top: 0rem; /* -40px */
+    left: 63%; /* مركزها أفقياً */
+    transform: translateX(-50%); /* لتحسين المركز */
+}
+
+.couple-img {
+    max-width: 12.375rem; /* 150px */
+    float: left; /* تجعل الصورة على اليسار */
+    margin: 0.625rem 1.25rem 0 0; /* 10px 20px */
+}
+
+.details {
+    font-size: 1.25rem; /* 20px */
+    line-height: 0.8; /* التحكم في ارتفاع السطر */
+    color: #000;
+    margin-top: 4rem; /* المسافة من الزخرفة العلوية 80px */
+    text-align: CENTER; /* محاذاة النص إلى اليمين */
+    position: relative; /* لضبط موقعها */
+    z-index: 1; /* وضعها فوق الزخارف */
+}
+
+.decor-between {
+    width: 50%; /* تناسب عرض الحاوية */
+    position: absolute; /* لجعلها قابلة للتحكم */
+    bottom: 5.75rem; /* 60px */
+    left: 63%; /* مركزها أفقياً */
+    transform: translateX(-50%); /* لتحسين المركز */
+    z-index: 0; /* وضعها خلف النص */
+}
+
+.footer {
+    margin-top: 10.25rem; /* 20px */
+    position: relative;
+}
+
+.rings-icon {
+    position: absolute;
+    bottom: 2rem; /* 20px */
+    left: 1.25rem; /* 20px */
+    width: 5.75rem; /* 60px */
+}
+
+.cake-icon {
+    position: absolute;
+   bottom: 2rem; /* 20px */
+    left: 6.25rem; /* 20px */
+    width: 5.75rem; /* 60px */
+}
+
+.flowers-icon {
+    position: absolute;
+    bottom: 2rem; /* 20px */
+    right: 0.25rem; /* 100px */
+    width: 5.75rem; /* 60px */
+}
