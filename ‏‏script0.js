@@ -1,10 +1,9 @@
-// تفعيل حركة الانبثاق عند التمرير
-window.addEventListener('scroll', function() {
-    var invitation = document.querySelector('.invitation');
-    var position = invitation.getBoundingClientRect();
-    
-    // إذا كانت الدعوة مرئية في نافذة العرض
-    if (position.top < window.innerHeight && position.bottom >= 0) {
-        invitation.classList.add('popup'); // إضافة فئة الانبثاق
-    }
-});
+<script>
+  function updateLayout() {
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    document.body.style.backgroundSize = width + 'px ' + height + 'px';
+  }
+  window.onresize = updateLayout;
+  window.onload = updateLayout;
+</script>
