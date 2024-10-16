@@ -1,102 +1,48 @@
-:root {
-  --base: #5E5690;
-  --base-light: #7873A7;
-  --base-dark: #555184;
-  --shadow: #4F4C6B;
-  --letter: #d8d7e5;
+let t1 = gsap.timeline({ paused: true }); 
+let flap = CSSRulePlugin.getRule(".envelope:before"); 
+
+t1.to(flap, { 
+  duration: 0.5, 
+  cssRule: {
+    rotateX: 180
+  }
+})
+ .set(flap, {
+  cssRule: {
+    zIndex: 10
+  }
+})
+ .to('.letter', {
+  translateY: -200,
+  duration: 0.9, 
+  ease: "back.inOut(1.5)"
+})
+ .set('.letter', {
+  zIndex: 40
+})
+ .to('.letter', {
+  duration: .7,  
+  ease: "back.out(.4)",
+  translateY: -5,
+  translateZ: 250
+});
+
+let t2 = gsap.timeline({ paused: true }); 
+t2.to('.shadow', {
+  delay: 1.4,
+  width: 450,
+  boxShadow: "-75px 150px 10px 5px #eeeef3",
+  ease: "back.out(.2)",
+  duration: .7
+}); 
+
+function openCard(e) {
+  t1.play();
+  t2.play();
 }
 
-* {
-  border: 0;
-  margin: 0;
-  box-sizing: border-box;
+function closeCard(e) {
+  t1.reverse();
+  t2.reverse();
 }
 
-.container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.content {
-  position: relative;
-  perspective: 600px;
-}
-
-.shadow {
-  position: absolute;
-  width: 200px;
-  height: 1px;
-  background: transparent;
-  border-radius: 30%;
-  box-shadow: 50px 100px 10px 5px #eeeef3;
-}
-
-.letter {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 280px;
-  height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 15;
-  border-radius: 2px;
-  background: var(--letter);
-  box-shadow: 0px 1px 7px -2px var(--base);
-}
-
-.body {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  color: var(--base);
-}
-
-.message {
-  width: 100%;
-  height: 100%;
-}
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.envelope {
-  position: relative;
-  width: 300px;
-  height: 180px;
-  background: linear-gradient(#cccbd7 0.5px, var(--base-light) 0.5px);
-  cursor: pointer;
-}
-
-.envelope::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 300px;
-  border-top: 115px solid #7873A7;
-  border-left: 150px solid transparent;
-  border-right: 150px solid transparent;
-  box-sizing: border-box;
-  z-index: 30;
-  transform-origin: top;
-}
-
-.envelope::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 300px;
-  height: 180px;
-  z-index: 25;
-  background: linear-gradient(30deg, var(--base-dark) 47%, var(--shadow) 50%, var(--base) 50%) 150px 90px / 150px 90px no-repeat, 
-              linear-gradient(31deg, var(--base) 49%, var(--shadow) 50%, transparent 50%) 0px 0px / 152px 90px no-repeat, 
-              linear-gradient(150deg, var(--base) 50%, var(--shadow) 50%, var(--base-dark) 53%) 0px 90px / 151px 90px no-repeat, 
-              linear-gradient(148.7deg, transparent 50%, var(--shadow) 50%, var(--base) 51%) 150px 0px / 150px 90px no-repeat;
-}
