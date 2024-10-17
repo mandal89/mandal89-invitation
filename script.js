@@ -45,9 +45,15 @@ function closeCard(e) {
     t1.reverse();
     t2.reverse();
 }
+
 function openCard(e) {
     t1.play();
     t2.play();
-    document.querySelector('.message iframe').style.width = '100vw';
-    document.querySelector('.message iframe').style.height = '100vh';
+    let iframe = document.querySelector('.message iframe');
+    iframe.style.width = '28vw';
+    iframe.style.height = '40vh';
+    iframe.style.position = 'fixed';
+    iframe.style.top = '-200';
+    iframe.style.left = '-200';
 }
+
