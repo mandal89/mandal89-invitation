@@ -50,10 +50,13 @@ function openCard(e) {
     t1.play();
     t2.play();
     let iframe = document.querySelector('.message iframe');
-    iframe.style.width = '28vw';
-    iframe.style.height = '40vh';
+    iframe.style.width = '23vw';
+    iframe.style.height = '50vh';
     iframe.style.position = 'fixed';
-    iframe.style.top = '-200';
-    iframe.style.left = '-200';
+    iframe.style.top = '0';
+    iframe.style.left = '0';
+
 }
+        
+
 
