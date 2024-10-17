@@ -83,25 +83,31 @@ html, body {
     position: absolute;
     right: 0;
     top: 0;
-    font-size: 35px;
+    font-size: 40px;
     font-family: 'Manjari', sans-serif;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    z-index: 40;
+}
+
+.message {
+    position: relative;
+    z-index: 39;
 }
 
 .message iframe {
-    position: fixed;
-    top: 100%;
-    left: 100%;
-    transform: translate(-100%, -100%);
-    width: 100vw;
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border: none;
-    z-index: 30; /* تأكد من ظهور iframe فوق جميع العناصر الأخرى */
+    z-index: 49; /* تأكد من أن z-index أقل من الرسالة ولكن أعلى من الخلفية */
 }
+
 
 
 .envelope {
